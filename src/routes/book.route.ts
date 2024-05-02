@@ -27,5 +27,9 @@ BookRouter.get("/delete/:id",(req: Request,res:Response)=>{
 
 // update route
 
+BookRouter.put("/update/:id",(req:Request, res:Response)=>{
+    res.json(BookService.updateBook(Number(req.params.id),req.body as BookRequestPayload))
+
+})
 
 export default BookRouter;

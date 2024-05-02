@@ -31,4 +31,8 @@ export default class BookService {
         return bookResponse;
     }
     // update book
+    public static updateBook(id:number , payload : BookRequestPayload){
+        BookRepo.updateBook(id,BookMapper.requestToEntityMapper(payload));
+        return "success"
+    }
 }
