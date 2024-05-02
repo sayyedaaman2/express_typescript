@@ -1,12 +1,13 @@
 import express, {Request,Response} from "express"
 import RootRoute from "./routes/root.route";
 import AppDataSource from "./database/db.config";
+import { loggingMiddleware } from "./middlewares/loggingMiddleware";
 
 const app = express();
 
 // Express jons middleware for parsing json to js object (req.body)
 app.use(express.json());
-
+app.use(loggingMiddleware);
 app.use("/",RootRoute);
 
 
